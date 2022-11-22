@@ -1,0 +1,458 @@
+*{padding: 0; margin: 0; box-sizing: border-box;}
+*{list-style-type: none;}
+
+body{
+    background-color: black;
+    color: white;
+}
+/* home.js------------------------------------- */
+.home{
+    margin-bottom: 150px;
+}
+.home h1{
+    margin-top: 50px;
+}
+
+
+/* Navigation-------------------------------- */
+.nav-item{
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.nav-item:hover{
+    color: red;
+}
+
+
+/*-- banner.js------------------------ */
+.banner{
+    height: 600px;
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.banner::before{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    content: "";
+    background: linear-gradient(to right, black, transparent);
+}
+
+.banner-info{
+    width: 40%;
+    margin-left: 30px;
+    z-index: 1;
+}
+
+
+/* MovieCard--------------- */
+.card{
+    width: 300px;
+    height: 200px;
+    background-position: center center;
+}
+
+.overlay{
+    opacity: 0;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 20px;
+}
+.overlay-average{
+    margin: 10px;
+}
+.card:hover .overlay{
+    opacity: 1;
+    background: rgba(43, 41, 41,0.5);
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+}
+
+
+/* MovieDetail----------------------------------------- */
+.detail_background{
+    width: 100%;
+    height: 500px;
+    background-position: center center;
+    background: linear-gradient(to right, black, transparent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.movieDetail_title{
+    text-align: center;
+    border: 3px solid white;
+    width: 500px;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    position: relative;
+}
+
+.detail_box1{
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid white;
+}
+
+.detail_box2{
+    width: 50%;
+}
+
+.home_btn_style{
+    cursor: pointer;
+}
+
+.home_btn_style:hover{
+    transition: 0.5;
+    color: red;
+}
+
+.movieDetail_title p{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.MovieDetail_container{
+    margin-top: 100px;
+}
+.MovieDetail_wrap{
+    display: flex;
+}
+.detail_image, .detail_info{
+    width: 50%;
+    padding: 30px;
+}
+
+.detail_image img{
+    width: 100%;
+    height: 100%;
+}
+
+.detail_firstBox ,.detail_secondBox, .detail_thirdBox{
+    border-bottom: 1px solid white;
+    margin-bottom: 30px;
+}
+.detail_genres{
+    font-size: 1.1em;
+    margin-right: 10px;
+}
+.movie_detail_genres{
+    list-style-type: none;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie_detail_genres li:first-child::before{
+    content: "";
+    background-image: url("../public/img/star.png");
+    background-size:cover;
+    width: 15px;
+    height:15px;
+    display:inline-block;
+    margin-right: 10px;
+}
+
+.movie_detail_genres li:nth-of-type(2):before{
+    content: "";
+    background-image: url("../public/img/subscriber.png");
+    background-size:cover;
+    width: 15px;
+    height:15px;
+    display:inline-block;
+    margin-right: 10px;
+}
+
+.eightteen{
+    font-weight: bold;
+    font-style: italic;
+    color: red;
+}
+
+.detail_info_list{
+    width: 100px;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.btn_box{
+    padding: 30px;
+}
+
+.btn_style{
+    width: 200px;
+    height: 50px;
+    margin-right: 20px;
+    background-color: #DC3545;
+}
+
+.btn_style.active{
+    background-color: white;
+}
+.reviews_area{
+    border: 5px solid white;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.reviews_box{
+    border-bottom: 1px solid white;
+    margin-bottom: 10px;
+}
+.reviews_area.active{
+    display: none;
+}
+.recommend-area{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.recommend-area.active{
+    display: none;
+}
+.recommend-box{
+    width: 45%;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 1s;
+    position: relative;
+    cursor: pointer;
+}
+.recommend-box:hover{
+    height: 400px;
+    background-position: center center;
+}
+.recommend_info{
+    opacity: 0;
+    height: 100%;
+    transition: 1s;
+}
+
+.recommend_info:hover{
+    opacity: 1;
+    background : linear-gradient(to bottom, black, transparent);
+}
+
+.recommend-box h1{
+    padding: 20px;
+}
+.recommend-genre{
+    margin-right: 15px;
+}
+.recommend_genres{
+    list-style-type: none;
+    width: 450px;
+    font-size: 2em;
+    display: flex;
+    justify-content: space-between;
+
+    position: absolute;
+    bottom: 100px;
+}
+
+.recommend_genres li:first-child::before{
+    content: "";
+    background-image: url("../public/img/star.png");
+    background-size:cover;
+    width: 15px;
+    height:15px;
+    display:inline-block;
+    margin-right: 10px;
+}
+
+.recommend_genres li:nth-of-type(2):before{
+    content: "";
+    background-image: url("../public/img/subscriber.png");
+    background-size:cover;
+    width: 15px;
+    height:15px;
+    display:inline-block;
+    margin-right: 10px;
+}
+
+
+
+
+
+/* modal--------------------- */
+.modal{
+    color: black;
+}
+
+.modal_bg{
+    background-color: black;
+}
+
+
+
+/* -----movie.js------------------- */
+.movieContainer{
+    display: flex;
+    margin-top: 100px;
+}
+.movieSort{
+    width: 30%;
+}
+.movieSort.active{
+    height: 300px;
+}
+.sort_title, .movie_range{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.sort_btn{
+    background-color: transparent;
+}
+.sort_btn_txt{
+    color: white;
+    font-size: 2em;
+}
+.sort_body{
+    display: none;
+    text-align: center;
+    border: 1px solid white;
+    padding: 50px 0px;
+}
+.sort_body.active{
+    display: block;
+}
+#dropdown-basic-button{
+    width: 200px;
+}
+.movieDesign{
+    width: 70%;
+    height: 500px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie_range{
+    margin-top: 40px;
+}
+
+/* --MovieCard2-------------------- */
+.MovieCard2{
+    width: 45%;
+    height: 800px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 20px;
+    margin-left: 20px;
+    box-shadow: 0 0 5px #ee2626,
+                0 0 5px #ee2626,
+                0 0 5px #ee2626,
+                0 0 40px #ee2626;
+    transition: 1s;
+
+    position: relative;
+    
+}
+
+.MovieCard2-overlay{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background : linear-gradient(to right, black, transparent);
+    cursor: pointer;
+}
+.MovieCard2:hover{
+    transform: scale(1.05);
+}
+.MovieCard2-cardImg{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 100px;
+    width: 30%;
+    display: inline;
+}
+.MovieCard2-info{
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    width: 50%;
+}
+.MovieCard2-genres{
+    padding: 15px;
+    margin-top: 50px;
+    margin-left: 20px;
+    font-size: 15px;
+}
+.MovieCard2-overview{
+    width: 50%;
+    height: 300px;
+    margin-left: 20px;
+    margin-top: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.MovieCard2-average, .MovieCard2-popularity, .MovieCard2-eightteen{
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 20px;
+}
+.MovieCard2-average::before{
+    content: "";
+    background-image: url("../public/img/star.png");
+    background-size:cover;
+    width: 30px;
+    height:30px;
+    display:inline-block;
+    margin-right: 10px;
+}
+
+.MovieCard2-popularity:before{
+    content: "";
+    background-image: url("../public/img/subscriber.png");
+    background-size:cover;
+    width: 30px;
+    height:30px;
+    display:inline-block;
+    margin-right: 10px;
+}
+
+.MovieCard2-eightteen{
+    font-weight: bold;
+    font-style: italic;
+    color: red;
+}
+.pagination{
+    font-size: 50px;
+    margin-top: 100px;
+}
+.li-style{
+    font-size: 35px;
+}
+.a-style{
+    display: block;
+
+    text-align: center;
+    width: 70px;
+    height: 70px;
+    padding-top: 10px;
+    border-radius: 50%;
+    color: white;
+    background : linear-gradient(to right, red, rgb(201, 170, 170));
+    text-decoration: none;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
