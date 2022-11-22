@@ -308,9 +308,10 @@ body{
 }
 .movieSort{
     width: 30%;
+    height: auto
 }
 .movieSort.active{
-    height: 300px;
+    height: auto;
 }
 .sort_title, .movie_range{
     padding: 20px;
@@ -319,6 +320,9 @@ body{
     border: 1px solid white;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+}
+.movie_range{
+    display: block;
 }
 .sort_btn{
     background-color: transparent;
@@ -330,9 +334,10 @@ body{
 }
 .sort_body{
     display: none;
+    height: 200px;
     text-align: center;
-    border: 1px solid white;
     padding: 50px 0px;
+    border: 1px solid white;
 }
 .sort_body.active{
     display: block;

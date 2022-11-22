@@ -90,19 +90,16 @@ const Movie = () => {
             <h1>Filter</h1>
           </div>
           <div>
-
+       
           </div>
         </div>
       </div>
       <div className='movieDesign'>
-
         {
           showApi === 1 ? popularMovies.results && popularMovies.results.map((item, id) => <MovieCard2 key={id} item={item} />) :
           showApi === 2 ? sort.results && sort.results.map((item, id) => <MovieCard2 key={id} item={item} />) :
           showApi === 3 ? search.results && search.results.map((item, id) => <MovieCard2 key={id} item={item} />) : ""
         }
-
-
         <Pagination className="pagination"
           activePage={page} // 현재 페이지
           itemsCountPerPage={20} // 한 페이지랑 보여줄 아이템 갯수
