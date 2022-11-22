@@ -588,6 +588,10 @@ body{
         position: relative;
         
     }
+    .btn_style{
+        width: 150px;
+        font-size: 12px;
+    }
     .MovieDetail_wrap{
         display: block;
     }
