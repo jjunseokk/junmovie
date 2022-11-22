@@ -297,7 +297,13 @@ body{
 .modal_bg{
     background-color: black;
 }
-
+.btn_bg{
+    background-color: red;
+    border: none;
+}
+.btn_bg:hover{
+    background-color: rgb(235, 154, 154);
+}
 
 
 /* -----movie.js------------------- */
@@ -337,6 +343,8 @@ body{
 }
 #dropdown-basic-button{
     width: 200px;
+    background-color: red;
+    border: none;
 }
 .movieDesign{
     width: 70%;
@@ -378,6 +386,9 @@ body{
 .MovieCard2:hover{
     transform: scale(1.05);
 }
+.MovieCard2-title{
+    height: 210px;
+}
 .MovieCard2-cardImg{
     margin-top: 20px;
     margin-left: 20px;
@@ -393,7 +404,7 @@ body{
 }
 .MovieCard2-genres{
     padding: 15px;
-    margin-top: 50px;
+    margin-top: 25px;
     margin-left: 20px;
     font-size: 15px;
 }

@@ -21,14 +21,16 @@ const MovieCard2 = (item) => {
             }}>
 
             <div className='MovieCard2-overlay' onClick={showDetail}>
-                <img className='MovieCard2-cardImg' src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${item.item.poster_path}`} alt="" />
-                <div className='MovieCard2-info'>
-                    <h3>{item.item.title}</h3>
-                    <p>{item.item.release_date}</p>
+                <div className='MovieCard2-title'>
+                    <img className='MovieCard2-cardImg' src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${item.item.poster_path}`} alt="" />
+                    <div className='MovieCard2-info'>
+                        <h3>{item.item.title}</h3>
+                        <p>{item.item.release_date}</p>
+                    </div>
                 </div>
                 <div>
                     {item.item.genre_ids.map((id, idd) => (
-                        <Badge  className='MovieCard2-genres' key={idd} bg="danger">{genreList.find((item) => item.id == id).name}</Badge>
+                        <Badge className='MovieCard2-genres' key={idd} bg="danger">{genreList.find((item) => item.id == id).name}</Badge>
                     ))}
                 </div>
                 <div className='MovieCard2-overview'>
@@ -37,7 +39,7 @@ const MovieCard2 = (item) => {
                 <div>
                     <span className='MovieCard2-average'>{item.item.vote_average}</span>
                     <span className='MovieCard2-popularity'>{item.item.popularity}</span>
-                    <p className='MovieCard2-eightteen'>{item.adult ? "청불" : "Under 18"}</p>
+                    <p className='MovieCard2-eightteen'>{item.item.adult ? "18+" : "Under 18"}</p>
                 </div>
             </div>
         </div>

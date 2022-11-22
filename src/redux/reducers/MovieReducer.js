@@ -12,6 +12,7 @@ let initialState = {
     movieTrailer : {},
     search : {},
     sort :{},
+    keyword :{}
 };
 
 function movieReducer(state = initialState, action) {
@@ -51,6 +52,10 @@ function movieReducer(state = initialState, action) {
             }
         case "GET_MOVIES_FAILURE":
             return { ...state, loading: false }
+        case "POST_KEYWORD" :
+            return {...state,
+                keyword : payload.keyword,
+            }
         default:
             return { ...state };
     };

@@ -26,7 +26,7 @@ const Home = () => {
   if(loading){
     return <ClipLoader color="#ffff" loading={loading} size={150} aria-label="Loading Spinner" data-testid="loader"/>;
   }
-
+  console.log("pop::::::::",popularMovies)
   return (
     <div className='home'>
       <Banner movie={popularMovies} />

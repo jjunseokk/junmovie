@@ -38,7 +38,7 @@ function getMovieDetail(id) {
             dispatch({ type: "GET_MOVIES_REQUEST" });
             const movieDetailApi = api.get(`/movie/${id}?api_key=${API_KEY}&language=en-US`);
             const movieReviewsApi = api.get(`/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
-            const movieRecommendationsApi = api.get(`/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=2`)
+            const movieRecommendationsApi = api.get(`/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`)
             const movieTrailerApi = api.get(`movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
 
             let [movieDetail, movieReviews, movieRecommendations, movieTrailer] 
@@ -66,7 +66,7 @@ function sortMovie(choiceResult, page) {
         try {
             dispatch({ type: "GET_MOVIES_REQUEST" });
 
-            const sortApi = api.get(`/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${choiceResult}&include_adult=true&include_video=false&page=${page}&with_watch_monetization_types=flatrate`);
+            const sortApi = api.get(`/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=${choiceResult}&include_adult=false&include_video=false&page=${page}&with_watch_monetization_types=flatrate`);
             
             let [sort] =
                 await Promise.all([sortApi]); //각각에 api 호출을 동시에 진행시키는데 딱 한번만 해주는 것이다.

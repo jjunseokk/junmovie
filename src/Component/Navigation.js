@@ -11,10 +11,10 @@ const Navigation = () => {
     const dispatch = useDispatch();
     const search = (event) => {
             let keyword = event.target.value;
-            console.log(keyword);
             if (event.key === "Enter") {
                 event.preventDefault();
                 dispatch(movieAction.searchMovie(keyword));
+                dispatch({type:"POST_KEYWORD", payload :{keyword}});
             }
     };
     
@@ -36,7 +36,8 @@ const Navigation = () => {
                             placeholder="Search"
                             className="me-2"
                             aria-label="Search"
-                            onKeyPress={(event) => search(event)} />
+                            onKeyPress={(event) => search(event)}
+                             />
                         <Button variant="outline-danger">Search</Button>
                     </Form>
                 </Navbar.Collapse>

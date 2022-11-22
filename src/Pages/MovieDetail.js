@@ -15,7 +15,7 @@ function MyVerticallyCenteredModal(props) {
   const { movieTrailer } = useSelector((state) => state.movie);
 
   
-    const videoId = movieTrailer.results !== undefined? movieTrailer.results[1].key : ""
+    const videoId = movieTrailer.results !== undefined ? movieTrailer.results[0].key : ""
     console.log(videoId);
   return (
     <Modal className='modal'
@@ -46,7 +46,7 @@ function MyVerticallyCenteredModal(props) {
           />
       </Modal.Body>
       <Modal.Footer className='modal_bg'>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button className='btn_bg' onClick={props.onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
