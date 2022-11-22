@@ -152,7 +152,7 @@ body{
 }
 .movie_detail_genres{
     list-style-type: none;
-    width: 300px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -177,7 +177,8 @@ body{
     margin-right: 10px;
 }
 
-.eightteen{
+.eighteen{
+
     font-weight: bold;
     font-style: italic;
     color: red;
@@ -254,18 +255,15 @@ body{
 .recommend-genre{
     margin-right: 15px;
 }
-.recommend_genres{
+.recommend_sub_info{
     list-style-type: none;
-    width: 450px;
+    width: 100%;
     font-size: 2em;
     display: flex;
     justify-content: space-between;
-
-    position: absolute;
-    bottom: 100px;
 }
 
-.recommend_genres li:first-child::before{
+.recommend_sub_info li:first-child::before{
     content: "";
     background-image: url("../public/img/star.png");
     background-size:cover;
@@ -275,7 +273,7 @@ body{
     margin-right: 10px;
 }
 
-.recommend_genres li:nth-of-type(2):before{
+.recommend_sub_info li:nth-of-type(2):before{
     content: "";
     background-image: url("../public/img/subscriber.png");
     background-size:cover;
@@ -286,15 +284,13 @@ body{
 }
 
 
-
-
-
 /* modal--------------------- */
 .modal{
     color: black;
 }
 
 .modal_bg{
+    width: 100%;
     background-color: black;
 }
 .btn_bg{
@@ -304,7 +300,6 @@ body{
 .btn_bg:hover{
     background-color: rgb(235, 154, 154);
 }
-
 
 /* -----movie.js------------------- */
 .movieContainer{
@@ -327,6 +322,7 @@ body{
 }
 .sort_btn{
     background-color: transparent;
+    border: none;
 }
 .sort_btn_txt{
     color: white;
@@ -357,6 +353,27 @@ body{
 .movie_range{
     margin-top: 40px;
 }
+.pagination{
+    margin-top: 100px;
+}
+.li-style{
+    font-size: 35px;
+}
+.a-style{
+    display: block;
+
+    text-align: center;
+    width: 70px;
+    height: 70px;
+    padding-top: 10px;
+    border-radius: 50%;
+    color: white;
+    background : linear-gradient(to right, red, rgb(201, 170, 170));
+    text-decoration: none;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
 
 /* --MovieCard2-------------------- */
 .MovieCard2{
@@ -446,24 +463,154 @@ body{
     font-style: italic;
     color: red;
 }
-.pagination{
-    font-size: 50px;
-    margin-top: 100px;
-}
-.li-style{
-    font-size: 35px;
-}
-.a-style{
-    display: block;
+@media screen and (max-width : 1025px) {
+    .li-style{
+        font-size: 20px;
+    }
+    .a-style{
+        width: 50px;
+        height: 50px;
+    }
+    .movieSort{
+        width: 20%;
+    }
+    .sort_title h1{
+        font-size: 25px;
+    }
+    .range_title h1{
+        font-size: 25px;
+    }
+    .MovieCard2-genres{
+        padding: 10px;
+        margin-top: 25px;
+        margin-left: 20px;
+        font-size: 15px;
+    }
 
-    text-align: center;
-    width: 70px;
-    height: 70px;
-    padding-top: 10px;
-    border-radius: 50%;
-    color: white;
-    background : linear-gradient(to right, red, rgb(201, 170, 170));
-    text-decoration: none;
-    margin-left: 20px;
-    margin-bottom: 10px;
+    .MovieCard2-overview{
+        height: 200px;
+    }
+    .MovieCard2-average, .MovieCard2-popularity, .MovieCard2-eightteen{
+        display: block;
+        margin-top: 20px;
+        font-size: 1em;
+        margin-left: 20px;
+    }
 }
+
+@media screen and (max-width : 769px) {
+    .movieContainer{
+        display: block;
+    }
+    .movieSort{
+        width: 100%;
+    }
+    .movieDesign{
+        width: 95%;
+        margin-top: 50px;
+    }
+    .movieDetail_title{
+        width: 300px;
+    }
+    .movieDetail_title p{
+        font-size: 15px;
+    }
+    .detail_genres{
+        width: 70px;
+    }
+    .detail_genres li{
+        font-size: 13px;
+    }
+    .movie_detail_genres{
+        width: 100%;
+    }
+    .movie_detail_genres li{
+        font-size: 13px;
+    }
+    .detail_info_list{
+        width: 70px;
+        font-size: 0.7em;
+    }
+    .recommend_sub_info{
+        width: 100%;
+        font-size: 1em;
+    }
+    .detail_image img{
+        width: 100%;
+        height: 60%;
+    }
+    .MovieCard2{
+        width: 100%;
+    }
+    .pagination{
+        margin-top: 20px;
+    }
+    .li-style{
+        font-size: 25px;
+    }
+    .a-style{
+        width: 50px;
+        height: 50px;
+        padding-top: 5px;
+        margin-left: 25px;
+    }
+}
+
+@media screen and (max-width : 426px) {
+    .movieContainer{
+        display: block;
+    }
+    .movieSort{
+        width: 100%;
+    }
+    .movieDesign{
+        width: 90%;
+        margin-top: 20px;
+    }
+    .MovieCard2{
+        width: 100%;
+        height: 800px;
+        background-size: cover;
+        background-position: center center;
+        border-radius: 20px;
+        margin-left: 20px;
+        box-shadow: 0 0 5px #ee2626,
+                    0 0 5px #ee2626,
+                    0 0 5px #ee2626,
+                    0 0 40px #ee2626;
+        transition: 1s;
+    
+        position: relative;
+        
+    }
+    .MovieDetail_wrap{
+        display: block;
+    }
+    .detail_image, .detail_info{
+        width: 100%;
+        padding: 30px;
+    }
+    .recommend-genre{
+        width: 50px;
+        font-size: 10px;
+    }
+    .recommend_sub_info{
+        display: block;
+        width: 100%;
+        font-size: 0.6em;
+    }
+    .li-style{
+        font-size: 15px;
+    }
+    .a-style{
+        width: 30px;
+        height: 30px;
+        padding-top: 3px;
+        margin-left: 13px;
+    }
+}
+
+
+
+
+

@@ -21,6 +21,7 @@ function MyVerticallyCenteredModal(props) {
     <Modal className='modal'
       {...props}
       size="xl"
+      fullscreen ="lg-down"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
@@ -120,7 +121,7 @@ const MovieDetail = () => {
               <ul className='movie_detail_genres'>
                 <li>{movieDetail.vote_average}</li>
                 <li>{movieDetail.popularity}</li>
-                <li className='eightteen'>{movieDetail.adult ? "청불" : "Under 18"}</li>
+                <li className='eighteen'>{movieDetail.adult ? "18+" : "Under 18"}</li>
               </ul>
             </div>
             <div className='detail_secondBox'>
@@ -174,10 +175,10 @@ const MovieDetail = () => {
                   ))}</li>
                 </ul>
                 <p className='under_line'></p>
-                <ul className='recommend_genres'>
+                <ul className='recommend_sub_info'>
                   <li>{item.vote_average}</li>
                   <li>{item.popularity}</li>
-                  <li className='eightteen'>{item.adult ? "청불" : "Under 18"}</li>
+                  <li className='eighteen'>{item.adult ? "18+" : "Under 18"}</li>
                 </ul>
               </div>
             </div>
