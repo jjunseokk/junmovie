@@ -22,22 +22,27 @@ const Movie = () => {
   }, [])
 
   const [page, setPage] = useState(1);
+  
+  const [selectApi, setSelectApi] = useState(popularMovies)
 
   const handlePageChange = (page) => {
     setPage(page);
     dispatch(movieAction.getMovies(page));
     dispatch(movieAction.sortMovie(choiceResult, page));
+    dispatch(movieAction.searchMovie(keyword, page));
   };
 
   
-  const [showApi, setShowApi] = useState('');
+  const [showApi, setShowApi] = useState(1);
+
   const [choiceResult, setChoiceResult] = useState('');
   const show = (userChoice) => {
     setChoiceResult(userChoice);
     dispatch(movieAction.sortMovie(userChoice));
-    setShowApi(true);
+    setShowApi(2);
     setPage(1);
     dispatch(movieAction.getMovies(page));
+    setSelectApi(sort);
   }
 
 
@@ -46,7 +51,18 @@ const Movie = () => {
     setgoSort(gosort => !gosort);
   }
 
-  
+  useEffect(()=>{
+    if(keyword === "") {
+      console.log("키워드 공백");
+      setSelectApi(popularMovies);
+    } else {
+      console.log("키워드 공백 아님 :", keyword)
+      setShowApi(3)
+      setSelectApi(search);
+    }
+  },[keyword])
+
+  console.log("selectApi:::::::",selectApi)
 
   return (
     <Container className='movieContainer'>
@@ -81,21 +97,16 @@ const Movie = () => {
       <div className='movieDesign'>
 
         {
-        keyword !== "" ? search.results && search.results.map((item, id) => <MovieCard2 key={id} item={item} />) :
-        showApi === true ? sort.results && sort.results.map((item, id) => <MovieCard2 key={id} item={item} />) :
-        popularMovies.results && popularMovies.results.map((item, id) => <MovieCard2 key={id} item={item} />)
+          showApi === 1 ? popularMovies.results && popularMovies.results.map((item, id) => <MovieCard2 key={id} item={item} />) :
+          showApi === 2 ? sort.results && sort.results.map((item, id) => <MovieCard2 key={id} item={item} />) :
+          showApi === 3 ? search.results && search.results.map((item, id) => <MovieCard2 key={id} item={item} />) : ""
         }
 
-        {/* {showApi === 1 ?
-          popularMovies.results && popularMovies.results.map((item, id) => <MovieCard2 key={id} item={item} />) :
-          showApi === 2 ? sort.results && sort.results.map((item, id) => <MovieCard2 key={id} item={item} />) :
-          showApi === 3 ? search.results && search.results.map((item, id) => <MovieCard2 key={id} item={item} />) :" "
-        } */}
-        {console.log("search::::",search)}
+
         <Pagination className="pagination"
           activePage={page} // 현재 페이지
           itemsCountPerPage={20} // 한 페이지랑 보여줄 아이템 갯수
-          totalItemsCount={2000} // 총 아이템 갯수
+          totalItemsCount={selectApi.total_results} // 총 아이템 갯수
           pageRangeDisplayed={5} // paginator의 페이지 범위
           prevPageText={"‹"} // "이전"을 나타낼 텍스트
           nextPageText={"›"} // "다음"을 나타낼 텍스트

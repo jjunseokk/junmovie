@@ -12,7 +12,7 @@ let initialState = {
     movieTrailer : {},
     search : {},
     sort :{},
-    keyword :{}
+    keyword : "",
 };
 
 function movieReducer(state = initialState, action) {

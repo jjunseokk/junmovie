@@ -84,13 +84,14 @@ function sortMovie(choiceResult, page) {
     };
 }
 
-function searchMovie(keyword) {
+function searchMovie(keyword, page) {
     return async (dispatch) => {
         try {
             dispatch({ type: "GET_MOVIES_REQUEST" });
-
-            const searchApi = api.get(`/search/movie?api_key=${API_KEY}&language=en-US&page=1&query=${keyword}`);
-            console.log("keyword:::::::::", keyword)
+            console.log("page::::::", page);
+            console.log("keyword::::::", keyword);
+            const searchApi = api.get(`/search/movie?api_key=${API_KEY}&language=en-US&page=${page}&query=${keyword}`);
+            // console.log("keyword:::::::::", keyword)
             let [search] =
                 await Promise.all([searchApi]); //각각에 api 호출을 동시에 진행시키는데 딱 한번만 해주는 것이다.
                 
