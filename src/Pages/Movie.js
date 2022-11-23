@@ -96,7 +96,7 @@ const Movie = () => {
             <Dropdown.Item onClick={() => show("revenue.asc")}>Revenue(Asc)</Dropdown.Item>
           </DropdownButton>
         </div>
-       
+        
       </div>
       <div className='movieDesign'>
         {

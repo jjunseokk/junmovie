@@ -522,7 +522,7 @@ body{
     font-style: italic;
     color: red;
 }
-@media screen and (max-width : 1025px) {
+@media screen and (min-width : 1024px) and (max-width : 3000px) {
     .li-style{
         font-size: 20px;
     }
@@ -557,7 +557,7 @@ body{
     }
 }
 
-@media screen and (max-width : 769px) {
+@media screen and (min-width : 464px) and (max-width : 1024px) {
     .movieContainer{
         display: block;
     }
@@ -605,17 +605,17 @@ body{
         margin-top: 20px;
     }
     .li-style{
-        font-size: 25px;
+        font-size: 18px;
     }
     .a-style{
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         padding-top: 5px;
-        margin-left: 25px;
+        margin-left: 10px;
     }
 }
 
-@media screen and (max-width : 426px) {
+@media screen and (min-width : 0px) and (max-width : 464px) {
     .movieContainer{
         display: block;
     }
@@ -669,63 +669,7 @@ body{
         width: 30px;
         height: 30px;
         padding-top: 3px;
-        margin-left: 13px;
-    }
-}
-
-@media screen and (max-width : 376px) {
-    .li-style{
-        font-size: 15px;
-    }
-    .a-style{
-        width: 30px;
-        height: 30px;
-        padding-top: 3px;
-        margin-left: 8px;
-    }
-    .btn_style{
-        width: 125px;
-        font-size: 10px;
-    }
-    .recommend-area{
-        display: block;
-    }
-    .recommend-box{
-        width: 100%;
-    }
-    .recommend_sub_info{
-        list-style-type: none;
-        width: 90%;
-        font-size: .9em;
-        display: flex;
-    }
-}
-
-@media screen and (max-width : 321px) {
-    .li-style{
-        font-size: 15px;
-    }
-    .a-style{
-        width: 30px;
-        height: 30px;
-        padding-top: 3px;
-        margin-left: 8px;
-    }
-    .btn_style{
-        width: 150px;
-        font-size: 10px;
-    }
-    .recommend-area{
-        display: block;
-    }
-    .recommend-box{
-        width: 100%;
-    }
-    .recommend_sub_info{
-        list-style-type: none;
-        width: 90%;
-        font-size: .9em;
-        display: flex;
+        margin-left: 10px;
     }
 }
 
