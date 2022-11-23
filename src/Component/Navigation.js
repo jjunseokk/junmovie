@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -9,15 +9,16 @@ import { movieAction } from '../redux/action/movieAction';
 
 const Navigation = () => {
     const dispatch = useDispatch();
+    const [clickSearch, setClickSearch] = useState()
     const search = (event) => {
             let keyword = event.target.value;
+            setClickSearch(keyword);
             if (event.key === "Enter") {
                 event.preventDefault();
                 dispatch(movieAction.searchMovie(keyword));
                 dispatch({type:"POST_KEYWORD", payload :{keyword}});
             }
     };
-    
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container fluid>
@@ -38,7 +39,6 @@ const Navigation = () => {
                             aria-label="Search"
                             onKeyPress={(event) => search(event)}
                              />
-                        <Button variant="outline-danger">Search</Button>
                     </Form>
                 </Navbar.Collapse>
             </Container>

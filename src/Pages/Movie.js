@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import MovieCard2 from '../Component/MovieCard2';
 import { movieAction } from '../redux/action/movieAction';
 import Pagination from "react-js-pagination";
+import RangeSlider from 'react-range-slider-input';
+import 'react-range-slider-input/dist/style.css';
 
 
 const Movie = () => {
 
   const dispatch = useDispatch()
-  const { popularMovies, search, sort, keyword } = useSelector((state) => state.movie);
+  const { popularMovies, search, sort, keyword, genreList } = useSelector((state) => state.movie);
   const getMovies = () => {
     dispatch(movieAction.getMovies());
   }
@@ -21,9 +23,25 @@ const Movie = () => {
     dispatch(movieAction.sortMovie());
   }, [])
 
-  const [page, setPage] = useState(1);
-  
-  const [selectApi, setSelectApi] = useState(popularMovies)
+  useEffect(() => {
+    if (keyword === "") {
+      console.log("키워드 공백");
+      setShowApi(1);
+      setSelectApi(popularMovies);
+    } else {
+      console.log("키워드 공백 아님 :", keyword)
+      setShowApi(3)
+      setSelectApi(search);
+    }
+  }, [keyword])
+
+  const [page, setPage] = useState(1); //페이지 셋팅
+  const [selectApi, setSelectApi] = useState(popularMovies);// 페이지에 api 보낼때 셋팅
+  const [showApi, setShowApi] = useState(1); // 조건대로 api 불러오는 셋팅
+  const [choiceResult, setChoiceResult] = useState(''); // keyword 값 디스패치 세팅
+  const [gosort1, setgoSort1] = useState(false); //버튼누르면 slideDown
+  const [gosort2, setgoSort2] = useState(false); //버튼누르면 slideDow
+  const [price, setPrice] = useState();
 
   const handlePageChange = (page) => {
     setPage(page);
@@ -32,10 +50,8 @@ const Movie = () => {
     dispatch(movieAction.searchMovie(keyword, page));
   };
 
-  
-  const [showApi, setShowApi] = useState(1);
 
-  const [choiceResult, setChoiceResult] = useState('');
+  
   const show = (userChoice) => {
     setChoiceResult(userChoice);
     dispatch(movieAction.sortMovie(userChoice));
@@ -46,34 +62,29 @@ const Movie = () => {
   }
 
 
-  const [gosort, setgoSort] = useState(false);
   const showSort = () => {
-    setgoSort(gosort => !gosort);
+    setgoSort1(gosort => !gosort);
+  }
+  const showSort2 = () => {
+    setgoSort2(gosort => !gosort);
   }
 
-  useEffect(()=>{
-    if(keyword === "") {
-      console.log("키워드 공백");
-      setSelectApi(popularMovies);
-    } else {
-      console.log("키워드 공백 아님 :", keyword)
-      setShowApi(3)
-      setSelectApi(search);
-    }
-  },[keyword])
+  const handleInput = (e)=>{
+    setPrice( e.target.value );
+  }
 
-  console.log("selectApi:::::::",selectApi)
-
+  console.log("price::::", price);
   return (
     <Container className='movieContainer'>
-      <div className={gosort ? 'movieSort active' : 'movieSort'}>
+      <div className={gosort1 ? 'movieSort active' : 'movieSort'}>
         <div className='sort_title'>
           <h1>Sort</h1>
           <button className='sort_btn'><FontAwesomeIcon className='sort_btn_txt' icon={faArrowDown} onClick={showSort} /></button>
         </div>
-        <div className={gosort ? 'sort_body active' : 'sort_body'}>
+        <div className={gosort1 ? 'sort_body active' : 'sort_body'}>
           <h3>Sort Results By</h3>
-          <DropdownButton id="dropdown-basic-button" title="Sort By">
+          {console.log("choiceResult:::", choiceResult)}
+          <DropdownButton id="dropdown-basic-button" title={choiceResult === "" ? 'Sort by' : choiceResult}>
             <Dropdown.Item onClick={() => show("")}>None</Dropdown.Item>
             <Dropdown.Item onClick={() => show("popularity.desc")} >Popularity(Desc)</Dropdown.Item>
             <Dropdown.Item onClick={() => show("popularity.asc")}>Popularity(Asc)</Dropdown.Item>
@@ -85,20 +96,13 @@ const Movie = () => {
             <Dropdown.Item onClick={() => show("revenue.asc")}>Revenue(Asc)</Dropdown.Item>
           </DropdownButton>
         </div>
-        <div className='movie_range'>
-          <div className='range_title'>
-            <h1>Filter</h1>
-          </div>
-          <div>
        
-          </div>
-        </div>
       </div>
       <div className='movieDesign'>
         {
           showApi === 1 ? popularMovies.results && popularMovies.results.map((item, id) => <MovieCard2 key={id} item={item} />) :
-          showApi === 2 ? sort.results && sort.results.map((item, id) => <MovieCard2 key={id} item={item} />) :
-          showApi === 3 ? search.results && search.results.map((item, id) => <MovieCard2 key={id} item={item} />) : ""
+            showApi === 2 ? sort.results && sort.results.map((item, id) => <MovieCard2 key={id} item={item} />) :
+              showApi === 3 ? search.results && search.results.map((item, id) => <MovieCard2 key={id} item={item} />) : ""
         }
         <Pagination className="pagination"
           activePage={page} // 현재 페이지
