@@ -25,7 +25,9 @@ https://junmovie.netlify.app/
 
 
 <br/>
+
 # 🕹️ 사용 스택 및 아키텍쳐
+
 <br/>
 <br/>
 
