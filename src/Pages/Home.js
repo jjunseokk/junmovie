@@ -13,7 +13,7 @@ const Home = () => {
   const { popularMovies, topRatedMovies, upcomingMovies, loading, } = useSelector((state) => state.movie);
 
   useEffect(() => {
-      dispatch(movieAction.getMovies());
+      dispatch(movieAction.getMovies(1));
   }, [])
 
   // loading이 true면 loading 스피너를 보여주고
