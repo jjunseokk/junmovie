@@ -15,7 +15,7 @@ const Navigation = () => {
             setClickSearch(keyword);
             if (event.key === "Enter") {
                 event.preventDefault();
-                dispatch(movieAction.searchMovie(keyword));
+                dispatch(movieAction.searchMovie(keyword, 1));
                 dispatch({type:"POST_KEYWORD", payload :{keyword}});
             }
     };

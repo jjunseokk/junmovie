@@ -87,8 +87,6 @@ function searchMovie(keyword, page) {
     return async (dispatch) => {
         try {
             dispatch({ type: "GET_MOVIES_REQUEST" });
-            console.log("page::::::", page);
-            console.log("keyword::::::", keyword);
             const searchApi = api.get(`/search/movie?api_key=${API_KEY}&language=en-US&page=${page?page:1}&query=${keyword}`);
             // console.log("keyword:::::::::", keyword)
             let [search] =
